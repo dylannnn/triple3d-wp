@@ -1,0 +1,1 @@
+This is a template that developed for Triple 3D (www.triple3d.net) blog.

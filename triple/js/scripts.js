@@ -3,15 +3,32 @@
 	$(function () {
 		
 		'use strict';
+		//Search button
+		$('.searchWrapper .searchBtn').mouseenter(function (e) {
+			var $marginRight = $('.searchWrapper .searchForm .search');
+			var $formVal = $('.searchWrapper .search-input').val();
+			if (!$formVal) {
+				$marginRight.animate({
+					marginRight: parseInt($marginRight.css('marginRight'),10) == 0 ? -($marginRight.outerWidth()+3) : 0
+				})
+			}
+		});
 		//Prevent Empty Searches
-		$('form.searchForm').submit(function(e) {
-		    var s = $( this ).find(".search-input");
+        var s = $(this).find(".search-input"),
+            sMes = s.attr('placeholder');
+		$('form.searchForm').submit(function (e) {
 		    if (!s.val()) {
 		        e.preventDefault();
-		        s.attr('placeholder','Your search is empty!');
+		        s.attr('placeholder', 'Type in a word');
 		        s.focus();
 		    }
 		});
+        $(document).on('click', function (e) {
+            if ($(e.target).closest('.searchForm').length === 0) {
+                $('.search-input').attr('placeholder', sMes);
+            }
+        });
+        
 		$('.mIconContainer').click(function(e) {
 			var $nav = $("#mainNav .nav");
 			$($nav).stop(true, true).slideToggle("200");

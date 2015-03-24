@@ -1,10 +1,12 @@
 /* ==========================================================================
    Triple 3D's custom styles
    ========================================================================== */
-@triple-blue: #0000ff;
-@light-blue: @triple-blue + #111;
+@triple-blue: #337ab7;
+@triple-blue-light: #4E9CDB;
 @border-color: #aeaeae;
-@hoverLinkColor:#337ab7;
+@hoverLinkColor: #337ab7;
+@conversionColorRed:#e74c3c;
+@conversionColorRedHover:#c0392b;
 
 .defaultFont {
     font-family: "Roboto","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
@@ -57,6 +59,11 @@ ul {
 			.logo {
 				display:inline-block;
                 vertical-align: top;
+                a {
+                    #tripleText {
+                        
+                    }
+                }
 			}
             .mIconContainer {
                 display:none;
@@ -70,9 +77,9 @@ ul {
                 }
 				ul li {
 					display:inline-block;
-					margin:0 20px;
+					margin:1px 20px 0;
 					border-bottom:2px solid rgba(0,0,255,0);
-                    padding-bottom: 10px;
+                    padding-bottom: 8px;
 					.transition;
 					a {
 						font-size:14px;
@@ -111,50 +118,84 @@ ul {
 			float:right;
 			background:white;
             border-radius:50px;
-            margin-right:5%;
+            margin-right:15px;
 			form.searchForm {
-                div.search {
-                    display:inline-block;
-                    padding:8px;
-                    input.search-input {
-                        padding:0;
-                        border:0;
-
-                    }
-                }
-                button.search-submit {
-                    display:inline-block;
+				overflow: hidden;
+                div.search-submit {
+					overflow: hidden;
+					height: 36px;
+					background-color: white;
                     .transition;
                     cursor: pointer;
-                    float:right;
-                    width:36px;
-                    height:36px;
-                    border-radius:50%;
+                    border-radius:50px;
                     border: 1px solid @border-color;
-                    background-color: white;
-                    position: relative;
-                    padding:2px 6px 3px;
-                    i {
-                        .transition;
-                        color:grey;
-                        margin: 0 auto;
-                        position: inline-block;
-                        font-size: 16px;
-                    }
+					div.search {
+						display:inline-block;
+						padding:7px 0 7px 16px;
+						margin-right: -129px;
+						input.search-input {
+							padding:0;
+							border:0;
+							max-width: 110px;
+						}
+					}
+					div.searchBtn {
+						display: inline-block;
+						vertical-align: top;
+						background-color: white;
+						height: 36px;
+						width: 36px;
+						i {
+							vertical-align: bottom;
+							padding: 9px 11px;
+							.transition;
+							color:grey;
+							margin: 0 auto;
+							position: inline-block;
+							font-size: 16px;
+						}
+					}
                 }
-                button.search-submit:hover {
+                div.search-submit:hover {
                     .transition;
                     border-color: @hoverLinkColor;
                 }
-                button.search-submit:hover > i {
+                div.search-submit:hover div.searchBtn > i {
                     .transition;
                     color:@hoverLinkColor;
                 }
-                button.search-submit:focus {
+                div.search-submit:focus {
                     outline:none;
                 }
             }
 		}
+        .signUp {
+            float: right;
+            margin-right: 5%;
+            a.signBtn {
+                padding: 5px 10px;
+                border: 1px solid @triple-blue-light;
+                background-color: @triple-blue-light;
+                color: white;
+                border-radius: 50px;
+                max-height: 36px;
+                height:36px;
+                .transition;
+                span.btnIcon {
+                    vertical-align: middle;
+                }
+                span.btnText {
+                    margin-left: 5px;
+                    vertical-align: middle;
+                    .transition;
+                }
+            }
+            a.signBtn:hover {
+                border-color: @hoverLinkColor;
+                background-color: @hoverLinkColor;
+                .transition;
+            }
+        }
 	}
 }
 
@@ -240,7 +281,7 @@ ul {
 				a {
 					display: block;
 					img {
-						width: 100%;
+						//width: 100%;
 					}
 				}
 			}
@@ -317,7 +358,7 @@ ul {
 			}
 			.quote {
 				.style1 {
-					color:grey;
+					color:gray;
 				}
 				.style2 {
 				
@@ -474,6 +515,8 @@ ul {
 	border-top: 1px solid rgba(0,0,0,0.05);
 	padding: 55px 0;
 	margin-left:10px;
+    -webkit-box-shadow: -1px 0 1px -2px rgba(0,0,0,0.9);
+    -moz-box-shadow: -1px 0 1px -2px rgba(0,0,0,0.9);
 	box-shadow: -1px 0 1px -2px rgba(0,0,0,0.9);
 	background-color: #fafafa;
 	.widgets {
@@ -572,8 +615,57 @@ ul {
 					float: none;
 					width: auto;
 					margin-left: 20px;
+                    vertical-align: bottom;
 				}
 			}
+		}
+	}
+}
+
+/*Mailchimp Newsletter in the footer*/
+.widget_mc4wp_widget {
+	form {
+		.subscribeWrapper {
+			.subscribeForm {
+				border: 1px solid @conversionColorRed;
+				max-width: 300px;
+				background-color: @conversionColorRed;
+				border-radius: 50px;
+				margin: 0 auto;
+				display: inline-flex;
+                display: -webkit-inline-flex;
+                .transition;
+				.mailField {
+					display: inline-block;
+					background: white;
+					padding: 7px 0;
+					float: left;
+					border-bottom-left-radius: 40px;
+					border-top-left-radius: 40px;
+
+					input {
+						border: none;
+						background: none;
+						padding-left: 15px;
+					}
+				}
+				.subsBtn {
+					display: inline-block;
+					input {
+						border: none;
+						background: none;
+						color: white;
+						padding: 8px 30px 8px 20px;
+						border-bottom-right-radius: 50px;
+						border-top-right-radius: 50px;
+					}
+				}
+			}
+            .subscribeForm:hover {
+                border-color: @conversionColorRedHover;
+                background-color: @conversionColorRedHover;
+                .transition;
+            }
 		}
 	}
 }
@@ -624,6 +716,17 @@ ul {
                     }
                 }
             }
+        .signUp{
+            a.signBtn {
+                width:36px;
+                max-width: 36px;
+                .transition;
+                span.btnText {
+                    display:none;
+                }
+            }
+        }
+        .searchWrapper {}
         }
     }
     #mainContent {
@@ -647,6 +750,9 @@ ul {
 		}
 	}
     #footer {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
         .container-fluid {
             padding-top: 30px;
             .info {
@@ -663,5 +769,18 @@ ul {
 				margin-left: 50px;
 			}
         }
+    }
+    //SideBar
+    .widgetsWrapper {
+        margin-left: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+}
+@media (max-width: 460px) {
+    //Comments 
+    #comment {
+        width:100%;
     }
 }
