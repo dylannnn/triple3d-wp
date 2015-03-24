@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".serchBtn").click(function(){$(".searchForm").show()}),$(".mIconContainer").click(function(){$("#mainNav .nav").show()})});
